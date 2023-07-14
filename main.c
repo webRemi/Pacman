@@ -79,8 +79,7 @@ void movePacman()
 
 void randomMonsters()
 {
-    setlocale(LC_ALL, "");
-    mvaddch(15, 20, '0x264A');
+    mvaddch(15, 20, 'o');
     refresh();
 }
 
