@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include <locale.h>
 
 void drawWalls()
 {
@@ -6,7 +7,7 @@ void drawWalls()
     
     initscr();
     // create window all screen
-    walls = subwin(stdscr, LINES, COLS, 0, 0);
+    walls = subwin(stdscr, LINES / 2, COLS, LINES/2, 0);
     // generate borders
     box(walls, ACS_VLINE, ACS_HLINE);
     // refresh walls
@@ -15,8 +16,11 @@ void drawWalls()
 
 void greetings()
 {
+    // bold text
+    attron(A_BOLD);
     // print greeting message
-    printw("Welcome to the Pacman game!!!");
+    printw("\n\t\t\tWelcome to the Pacman game!!!");
+    attroff(A_BOLD);
     refresh();
 }
 
@@ -31,8 +35,8 @@ void movePacman()
     // take input from keyboard
     keypad(stdscr, TRUE);
     // initilize lines and colonnes
-    int x = 0;
-    int y = 0;
+    int x = 1;
+    int y = 14;
     // initialize key
     int key;
     // set shape for cursor (0, 1, 2)
@@ -74,11 +78,19 @@ void movePacman()
     }
 }
 
+void randomMonsters()
+{
+    setlocale(LC_ALL, "");
+    mvaddch(15, 20, '0x264A');
+    refresh();
+}
+
 int main()
 {
     initscr();
     drawWalls();
     greetings();
+    randomMonsters();
     movePacman();
     endwin();
     return 0;
