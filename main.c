@@ -1,5 +1,4 @@
 #include <ncurses.h>
-#include <locale.h>
 
 void drawWalls()
 {
