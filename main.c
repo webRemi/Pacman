@@ -1,16 +1,23 @@
 #include <ncurses.h>
+#include <time.h>
+#include <stdlib.h>
 
 void drawWalls()
 {
     WINDOW *walls;
     
     initscr();
+    start_color();
+    init_color(COLOR_BLACK, 0, 0, 0);
+    init_pair(1, COLOR_BLUE, COLOR_BLACK);
+    attron(COLOR_PAIR(1));
     // create window all screen
     walls = subwin(stdscr, LINES / 2, COLS, LINES/2, 0);
     // generate borders
     box(walls, ACS_VLINE, ACS_HLINE);
     // refresh walls
     wrefresh(walls);
+    attroff(COLOR_PAIR(1));
 }     
 
 void greetings()
@@ -27,6 +34,9 @@ void movePacman()
 {
     // initialize screen
     initscr();
+    start_color();
+    init_pair(2, COLOR_YELLOW, COLOR_BLACK);
+    attron(COLOR_PAIR(2));
     // balance teminal to rare mode
     cbreak();
     // remove echos
@@ -75,11 +85,22 @@ void movePacman()
             break;
         }
     }
+    attroff(COLOR_PAIR(2));
 }
 
-void randomMonsters()
+void callMonsters(int x)
 {
-    mvaddch(15, 20, 'o');
+    srand(time(NULL));
+
+    // initialize random x
+    int randomX = rand() % 10;
+    // initialize random y
+    int randomY = rand() % 10;
+
+    // array for monsters
+    char monsters[5] = {'o', 'a', 'b', 'c', 'd'};
+    // call monster in random position
+    mvaddch(randomX, randomY, monsters[x]);
     refresh();
 }
 
@@ -88,8 +109,8 @@ int main()
     initscr();
     drawWalls();
     greetings();
-    randomMonsters();
     movePacman();
+    
     endwin();
     return 0;
 }
