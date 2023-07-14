@@ -4,6 +4,7 @@ int main()
 {
     // initialize screen
     initscr();
+    // balance terminal to rare mode
     cbreak();
     // remove echos
     noecho();
