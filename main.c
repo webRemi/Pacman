@@ -20,6 +20,22 @@ void drawWalls()
     attroff(COLOR_PAIR(1));
 }     
 
+void drawInternWalls()
+{
+    int y = 5;
+    int x = 1;
+    initscr();
+    start_color();
+    init_pair(3, COLOR_BLUE, COLOR_BLUE);
+    attron(COLOR_PAIR(3));
+    while (x < 10)
+    {
+        mvaddch(y, x ++, ' ');
+    }
+    refresh();
+    attroff(COLOR_PAIR(3));
+}
+
 void greetings()
 {
     // bold text
@@ -108,6 +124,7 @@ int main()
 {
     initscr();
     drawWalls();
+    drawInternWalls();
     greetings();
     movePacman();
     
