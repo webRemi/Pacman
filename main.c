@@ -4,33 +4,33 @@
 
 void drawWalls()
 {
-    WINDOW *walls;
-    
-    initscr();
-    start_color();
-    init_color(COLOR_BLACK, 0, 0, 0);
-    init_pair(1, COLOR_BLUE, COLOR_BLACK);
-    attron(COLOR_PAIR(1));
-    // create window all screen
-    walls = subwin(stdscr, LINES / 2, COLS, LINES/2, 0);
-    // generate borders
-    box(walls, ACS_VLINE, ACS_HLINE);
-    // refresh walls
-    wrefresh(walls);
-    attroff(COLOR_PAIR(1));
-}     
-
-void drawInternWalls()
-{
     int y = 5;
     int x = 1;
     initscr();
     start_color();
+    init_color(COLOR_BLACK, 0, 0, 0);
     init_pair(3, COLOR_BLUE, COLOR_BLUE);
     attron(COLOR_PAIR(3));
-    while (x < 10)
+    while (x < 77)
     {
-        mvaddch(y, x ++, ' ');
+        mvaddch(y, x++, ' ');
+    }
+    while (y < 22)
+    {
+        mvaddch(y, x++, ' ');
+        mvaddch(y++, x, ' ');
+        mvaddch(y, x--, ' ');
+    }
+    while (x > 1)
+    {
+        mvaddch(y, x--, ' ');
+    }
+    while (y > 5)
+    {
+        mvaddch(y--, x, ' ');
+        mvaddch(y, x++, ' ');
+        mvaddch(y, x--, ' ');
+        
     }
     refresh();
     attroff(COLOR_PAIR(3));
@@ -124,10 +124,7 @@ int main()
 {
     initscr();
     drawWalls();
-    drawInternWalls();
-    greetings();
     movePacman();
-    
     endwin();
     return 0;
 }
