@@ -52,6 +52,25 @@ void drawInternalWalls()
     int floor6x = 4;
     int floor7y = 12;
     int floor7x = 4;
+    int floor8y = 13;
+    int floor8x = 4;
+    int floor9y = 14;
+    int floor9x = 4;
+    int floor10y = 15;
+    int floor10x = 4;
+    int floor11y = 16;
+    int floor11x = 17;
+    int floor12y = 17;
+    int floor12x = 2;
+    int floor13y = 18;
+    int floor13x = 2;
+    int floor14y = 19;
+    int floor14x = 10;
+    int floor15y = 20;
+    int floor15x = 4;
+    int floor16y = 21;
+    int floor16x = 6;
+
 
     initscr();
     start_color();
@@ -186,6 +205,133 @@ void drawInternalWalls()
             continue;
         }
         mvaddch(floor7y, ++floor7x, ' ');
+    }
+
+    //floor8
+    while (floor8x < 74)
+    {
+        if (floor8x == 10 || floor8x == 15 || floor8x == 19 || floor8x == 23 || floor8x == 27 || floor8x == 31 || floor8x == 35 || floor8x == 41 || floor8x == 45 || floor8x == 49 || floor8x == 53 || floor8x == 57 || floor8x == 61 || floor8x == 66)
+        {
+            if (floor8x == 35)
+            {
+                floor8x += 6;
+            }
+            floor8x += 2;
+            continue;
+        }
+        mvaddch(floor8y, ++floor8x, ' ');
+    }
+
+    //floor9
+    while (floor9x < 74)
+    {
+        if (floor9x == 10 || floor9x == 15 || floor9x == 19 || floor9x == 23 || floor9x == 27 || floor9x == 31 || floor9x == 45 || floor9x == 49 || floor9x == 53 || floor9x == 57 || floor9x == 61 || floor9x == 66)
+        {
+            floor9x += 2;
+            continue;
+        }
+        mvaddch(floor9y, ++floor9x, ' ');
+    }
+
+    //floor10
+    while (floor10x < 74)
+    {
+        if (floor10x == 10 || floor10x == 15 || floor10x == 19 || floor10x == 23 || floor10x == 27 || floor10x == 31 || floor10x == 45 || floor10x == 49 || floor10x == 53 || floor10x == 57 || floor10x == 61 || floor10x == 66)
+        {
+            if (floor10x == 27)
+            {
+                floor10x += 20;
+            }
+            floor10x += 2;
+            continue;
+        }
+        mvaddch(floor10y, ++floor10x, ' ');
+    }
+
+    //floor11
+    while (floor11x < 74)
+    {
+        if (floor11x == 10 || floor11x == 15 || floor11x == 19 || floor11x == 23 || floor11x == 31 || floor11x == 45 || floor11x == 53 || floor11x == 57 || floor11x == 61)
+        {
+            if (floor11x == 61)
+            {
+                floor11x += 12;
+            }
+            floor11x += 2;
+            continue;
+        }
+        mvaddch(floor11y, ++floor11x, ' ');
+    }
+
+    //floor12
+    while (floor12x < 76)
+    {
+        if (floor12x == 12 || floor12x == 19 || floor12x == 23 || floor12x == 57 || floor12x == 64)
+        {
+            if (floor12x == 23)
+            {
+                floor12x += 30;
+            }
+            floor12x += 2;
+            continue;
+        }
+        mvaddch(floor12y, ++floor12x, ' ');
+    }
+
+    //floor13
+    while (floor13x < 76)
+    {
+        if (floor13x == 12 || floor13x == 19 || floor13x == 23 || floor13x == 31 || floor13x == 45 || floor13x == 53 || floor13x == 57 || floor13x == 64)
+        {
+            floor13x += 2;
+            continue;
+        }
+        mvaddch(floor13y, ++floor13x, ' ');
+    }
+
+    //floor14
+    while (floor14x < 68)
+    {
+        if (floor14x == 12 || floor14x == 19 || floor14x == 23 || floor14x == 27 || floor14x == 36 || floor14x == 41 || floor14x == 48 || floor14x == 53 || floor14x == 57 || floor14x == 64)
+        {
+            if (floor14x == 27 || floor14x == 41)
+            {
+                floor14x += 8;
+            }
+            floor14x += 2;
+            continue;
+        }
+        mvaddch(floor14y, ++floor14x, ' ');
+    }
+
+    //floor15
+    while (floor15x < 74)
+    {
+        if (floor15x == 8 || floor15x == 12 || floor15x == 19 || floor15x == 23 || floor15x == 35 || floor15x == 41 || floor15x == 53 || floor15x == 57 || floor15x == 64 || floor15x == 68)
+        {
+            floor15x += 2;
+            continue;
+        }
+        mvaddch(floor15y, ++floor15x, ' ');
+    }
+
+    //floor16
+    while (floor16x < 72)
+    {
+        if (floor16x == 8 || floor16x == 19 || floor16x == 64 || floor16x == 68)
+        {
+            if (floor16x == 8 || floor16x == 64 || floor16x == 68)
+            {
+                floor16x += 4;
+            }
+            else if (floor16x == 19)
+            {
+                floor16x += 38;
+            }
+            floor16x += 2;
+            continue;
+        }
+        mvaddch(floor16y, ++floor16x, ' ');
     }
 
     refresh();
