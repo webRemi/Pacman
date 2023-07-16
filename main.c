@@ -36,6 +36,30 @@ void drawWalls()
     attroff(COLOR_PAIR(3));
 }
 
+void drawInternalWalls()
+{
+    int y = 7;
+    int x = 4;
+    initscr();
+    start_color();
+    attron(COLOR_PAIR(3));
+    while (x < 7)
+    {
+        mvaddch(y, ++x, ' ');
+    }
+    while (x < 74)
+    {
+        if (x == 8 || x == 15 || x == 30 || x == 36 || x == 37 || x == 38 || x == 45 || x == 61 || x == 68)
+        {
+            x += 2;
+            continue;
+        }
+        mvaddch(y, ++x, ' ');
+    }
+    refresh();
+    attroff(COLOR_PAIR(3));
+}
+
 void greetings()
 {
     // bold text
@@ -60,7 +84,7 @@ void movePacman()
     // take input from keyboard
     keypad(stdscr, TRUE);
     // initilize lines and colonnes
-    int x = 1;
+    int x = 3;
     int y = 14;
     // initialize key
     int key;
@@ -124,6 +148,7 @@ int main()
 {
     initscr();
     drawWalls();
+    drawInternalWalls();
     movePacman();
     endwin();
     return 0;
