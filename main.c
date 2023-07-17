@@ -340,25 +340,36 @@ void movePacman()
         switch(key)
         {
             case KEY_UP:
-            // update position with blank value (to hide old position)
-            mvaddch(y, x, ' ');
-            y--;
-            break;
+                while (y != 6)
+                {
+                    mvaddch(y, x, ' ');
+                    y--;
+                }
+                break;
 
             case KEY_RIGHT:
-            mvaddch(y, x, ' ');
-            x += 2;
-            break;
+                while (x != 76)
+                {
+                    mvaddch(y, x, ' ');
+                    x++;
+                }
+                break;
 
             case KEY_DOWN:
-            mvaddch(y, x, ' ');
-            y++;
-            break;
+                while (y != 21)
+                {
+                    mvaddch(y, x, ' ');
+                    y++;
+                }
+                break;
 
             case KEY_LEFT:
-            mvaddch(y, x, ' ');
-            x -= 2;
-            break;
+                while (x != 3)
+                {
+                    mvaddch(y, x, ' ');
+                    x--;
+                }
+                break;
         }
     }
     attroff(COLOR_PAIR(2));
@@ -383,7 +394,7 @@ void callMonsters(int x)
 int main()
 {
     initscr();
-    
+
     //color declaration
     start_color();
     init_pair(2, COLOR_YELLOW, COLOR_BLACK);
