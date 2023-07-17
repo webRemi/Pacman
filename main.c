@@ -6,10 +6,7 @@ void drawWalls()
 {
     int y = 5;
     int x = 1;
-    initscr();
-    start_color();
     init_color(COLOR_BLACK, 0, 0, 0);
-    init_pair(3, COLOR_BLUE, COLOR_BLUE);
     attron(COLOR_PAIR(3));
     while (x < 77)
     {
@@ -71,9 +68,6 @@ void drawInternalWalls()
     int floor16y = 21;
     int floor16x = 6;
 
-
-    initscr();
-    start_color();
     attron(COLOR_PAIR(3));
     //floor 1
     while (floor1x < 41)
@@ -143,7 +137,6 @@ void drawInternalWalls()
             if (floor6x == 37)
             {
                 attroff(COLOR_PAIR(3));
-                init_pair(4, COLOR_RED, COLOR_BLACK);
                 attron(COLOR_PAIR(4));
                 floor6x += 2;
                 mvaddch(floor6y, 38, '-');
@@ -304,8 +297,6 @@ void drawInternalWalls()
         }
         mvaddch(floor16y, ++floor16x, ' ');
     }
-
-    refresh();
     attroff(COLOR_PAIR(3));
 }
 
@@ -321,10 +312,7 @@ void greetings()
 
 void movePacman()
 {
-    // initialize screen
-    initscr();
-    start_color();
-    init_pair(2, COLOR_YELLOW, COLOR_BLACK);
+    // color blue
     attron(COLOR_PAIR(2));
     // balance teminal to rare mode
     cbreak();
@@ -354,7 +342,6 @@ void movePacman()
             case KEY_UP:
             // update position with blank value (to hide old position)
             mvaddch(y, x, ' ');
-            refresh();
             y--;
             break;
 
@@ -396,6 +383,14 @@ void callMonsters(int x)
 int main()
 {
     initscr();
+    
+    //color declaration
+    start_color();
+    init_pair(2, COLOR_YELLOW, COLOR_BLACK);
+    init_pair(3, COLOR_BLUE, COLOR_BLUE);
+    init_pair(4, COLOR_RED, COLOR_BLACK);
+
+    //game steps
     drawWalls();
     drawInternalWalls();
     movePacman();
