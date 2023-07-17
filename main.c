@@ -39,7 +39,7 @@ void drawWalls()
 void drawInternalWalls()
 {
     int floor1y = 6;
-    int floor1x = 38;
+    int floor1x = 37;
     int floor2y = 7;
     int floor2x = 4;
     int floor3y = 8;
@@ -76,13 +76,10 @@ void drawInternalWalls()
     start_color();
     attron(COLOR_PAIR(3));
     //floor 1
-    mvaddch(floor1y, floor1x, ' ');
-    floor1x++;
-    mvaddch(floor1y, floor1x, ' ');
-    floor1x++;
-    mvaddch(floor1y, floor1x, ' ');
-    floor1x++;
-    mvaddch(floor1y, floor1x, ' ');
+    while (floor1x < 41)
+    {
+        mvaddch(floor1y, ++floor1x, ' ');
+    }
     //floor2
     while (floor2x < 74)
     {
@@ -94,31 +91,23 @@ void drawInternalWalls()
         mvaddch(floor2y, ++floor2x, ' ');
     }
     //floor3
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    floor3x = 12;
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    floor3x = 17;
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    floor3x = 21;
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    floor3x = 55;
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    floor3x = 59;
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    floor3x = 63;
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
-    floor3x = 72;
-    mvaddch(floor3y, ++floor3x, ' ');
-    mvaddch(floor3y, ++floor3x, ' ');
+    while (floor3x < 74)
+    {
+        if (floor3x == 6 || floor3x == 15 || floor3x == 19 || floor3x == 23 || floor3x == 57 || floor3x == 61 || floor3x == 66)
+        {
+            if (floor3x == 6 || floor3x == 66)
+            {
+                floor3x += 4;
+            }
+            else if (floor3x == 23)
+            {
+                floor3x += 30;
+            }
+            floor3x += 2;
+            continue;
+        }
+        mvaddch(floor3y, ++floor3x, ' ');
+    }
 
     //floor4
     while (floor4x < 74)
@@ -132,37 +121,19 @@ void drawInternalWalls()
     }
     
     //floor5
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 12;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 17;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 21;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 25;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 51;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 55;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 59;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 63;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
-    floor5x = 68;
-    mvaddch(floor5y, ++floor5x, ' ');
-    mvaddch(floor5y, ++floor5x, ' ');
+    while (floor5x < 70)
+    {
+        if (floor5x == 10 || floor5x == 15 || floor5x == 19 || floor5x == 23 || floor5x == 27 || floor5x == 49  || floor5x == 53 || floor5x == 57 || floor5x == 61 || floor5x == 66)
+        {
+            if (floor5x == 27)
+            {
+                floor5x += 22;
+            }
+            floor5x += 2;
+            continue;
+        }
+        mvaddch(floor5y, ++floor5x, ' ');
+    }
 
     //floor6
     while (floor6x < 74)
@@ -193,7 +164,7 @@ void drawInternalWalls()
     {
         if (floor7x == 6 || floor7x == 15 || floor7x == 23 || floor7x == 27 || floor7x == 31 || floor7x == 35 || floor7x == 45 || floor7x == 49 || floor7x == 53 | floor7x == 57 || floor7x == 61 || floor7x == 66)
         {
-            if (floor7x == 6 || floor7x == 15 || floor7x == 66)
+            if (floor7x == 6 || floor7x == 15 || floor7x == 57 || floor7x == 66)
             {
                 floor7x += 4;
             }
