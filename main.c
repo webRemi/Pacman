@@ -342,32 +342,48 @@ void movePacman()
             case KEY_UP:
                 while (y != 6)
                 {
+                    mvaddch(y, x, '<');
+                    refresh();
+                    napms(100);
                     mvaddch(y, x, ' ');
                     y--;
+                    refresh();
                 }
                 break;
 
             case KEY_RIGHT:
                 while (x != 76)
                 {
+                    mvaddch(y, x, '<');
+                    refresh();
+                    napms(100);
                     mvaddch(y, x, ' ');
                     x++;
+                    refresh();
                 }
                 break;
 
             case KEY_DOWN:
                 while (y != 21)
                 {
+                    mvaddch(y, x, '<');
+                    refresh();
+                    napms(100);
                     mvaddch(y, x, ' ');
                     y++;
+                    refresh();
                 }
                 break;
 
             case KEY_LEFT:
                 while (x != 3)
                 {
+                    mvaddch(y, x, '<');
+                    refresh();
+                    napms(100);
                     mvaddch(y, x, ' ');
                     x--;
+                    refresh();
                 }
                 break;
         }
