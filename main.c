@@ -114,6 +114,8 @@ void movePacman()
     // remove echos
     noecho();
     // take input from keyboard
+    
+    nodelay(stdscr, TRUE);
     keypad(stdscr, TRUE);
     // initilize lines and colonnes
     int x = 3;
@@ -121,69 +123,55 @@ void movePacman()
     int check;
     // initialize key
     int key;
+    int newKey;
     // set shape for cursor (0, 1, 2)
     curs_set(0);
     while (1)
     {   
         // mv pacman to position updated
         mvaddch(y, x, '<');
-        // refresh screen to view updates
+        refresh();
+        napms(100);
+        mvaddch(y, x, ' ');
         refresh();
         
         // take user input (for arrow keys)
-        key = getch();
+        int nextKey = getch();
+        if (nextKey != ERR) 
+        {
+            key = nextKey;
+        }
         // check position where pacman need to move
         switch(key)
         {
             case KEY_UP:
-                while(locations[y - 1][x] == 49)
+                if (locations[y - 1][x] != 48 && locations[y - 1][x] != 45)
                 {
-                    mvaddch(y, x, '<');
-                    refresh();
-                    napms(100);
-                    mvaddch(y, x, ' ');
                     y--;
-                    refresh();
                 }
                 break;
 
             case KEY_RIGHT:
-                while(locations[y][x + 1] == 49)
+                if (locations[y][x + 1] != 48 && locations[y][x + 1] != 45)
                 {
-                    mvaddch(y, x, '<');
-                    refresh();
-                    napms(100);
-                    mvaddch(y, x, ' ');
                     x++;
-                    refresh();
                 }
                 break;
 
             case KEY_DOWN:
-                while (locations[y + 1][x] == 49)
+                if (locations[y + 1][x] != 48 && locations[y + 1][x] != 45)
                 {
-                    mvaddch(y, x, '<');
-                    refresh();
-                    napms(100);
-                    mvaddch(y, x, ' ');
                     y++;
-                    refresh();
                 }
                 break;
 
             case KEY_LEFT:
-                while (locations[y][x - 1] == 49)
+                if (locations[y][x - 1] != 48 && locations[y][x - 1] != 45)
                 {
-                    mvaddch(y, x, '<');
-                    refresh();
-                    napms(100);
-                    mvaddch(y, x, ' ');
                     x--;
-                    refresh();
                 }
                 break;
         }
-        
     }
     attroff(COLOR_PAIR(2));
 }
