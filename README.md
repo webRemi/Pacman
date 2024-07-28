@@ -1,12 +1,14 @@
 # PacGame
 
+![PacGame Screenshot](/PacGame.png)
+
 ## Description
 A Pacman game in the terminal!
 
 ### Dependencies
 
 #### Library
-**ncurses**
+- **ncurses**
 
 #### Library installation
 Ubuntu/Debian based systems:
@@ -25,4 +27,6 @@ sudo pacman -S ncurses
 ```
 
 ##### Compilation instructions
+```bash
 gcc main.c -lncurses
+```
