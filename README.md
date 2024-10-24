@@ -28,5 +28,5 @@ sudo pacman -S ncurses
 
 ##### Compilation instructions
 ```bash
-gcc main.c -lncurses
+gcc main.c -o main -lncurses
 ```
