@@ -31,7 +31,7 @@ sudo pacman -S ncurses
 gcc main.c -o main -lncurses
 ```
 
-##### Exit
+##### Exit the game
 ```bash
 ctrl + c
 ```
