@@ -30,3 +30,8 @@ sudo pacman -S ncurses
 ```bash
 gcc main.c -o main -lncurses
 ```
+
+##### Exit
+```bash
+ctrl + c
+```
